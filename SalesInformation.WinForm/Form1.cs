@@ -30,6 +30,7 @@ namespace SalesInformation.WinForm
                     command.CommandText = "Select * from Customers";
                     dataReader = command.ExecuteReader();
 
+                    listBox2.Items.Add("Id\tИмя\t\tФамилия");
                     while (dataReader.Read())
                     {
                         listBox2.Items.Add(dataReader["Id"] + "\t" +
@@ -67,6 +68,7 @@ namespace SalesInformation.WinForm
                     command.CommandText = "Select * from Sellers";
                     dataReader = command.ExecuteReader();
 
+                    listBox2.Items.Add("Id\tИмя\t\tФамилия");
                     while (dataReader.Read())
                     {
                         listBox2.Items.Add(dataReader["Id"] + "\t" +
@@ -108,6 +110,8 @@ namespace SalesInformation.WinForm
 
                     dataReader = command.ExecuteReader();
 
+                    listBox2.Items.Add(String.Format("{0,5} | {1,20}  {2,25} \t {3,15} \t {4,20}",
+                           "Id", "Покупатель", "Продавец", "Сумма оплаты", "Дата покупки"));
                     while (dataReader.Read())
                     {
                         listBox2.Items.Add(String.Format("{0,5} | {1,20}  {2,25} \t {3,20} \t {4,20}",
