@@ -11,8 +11,8 @@ namespace SalesInformation.WinForm
         {
             InitializeComponent();
         }
-
-        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        
+        private void toolStripMenuCustomers_Click(object sender, EventArgs e)
         {
             if (listBox2.Items != null)
                 listBox2.Items.Clear();
@@ -20,7 +20,7 @@ namespace SalesInformation.WinForm
             SalesDBDataService service = new SalesDBDataService();
             DbDataReader dataReader = null;
             using (var connection = service.providerFactory.CreateConnection())
-                using(var command = connection.CreateCommand())
+            using (var command = connection.CreateCommand())
             {
                 try
                 {
@@ -50,7 +50,7 @@ namespace SalesInformation.WinForm
             }
         }
 
-        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        private void toolStripMenuSellers_Click(object sender, EventArgs e)
         {
             if (listBox2.Items != null)
                 listBox2.Items.Clear();
@@ -88,7 +88,7 @@ namespace SalesInformation.WinForm
             }
         }
 
-        private void toolStripMenuItem5_Click(object sender, EventArgs e)
+        private void toolStripMenuSalesNote_Click(object sender, EventArgs e)
         {
             if (listBox2.Items != null)
                 listBox2.Items.Clear();
@@ -102,7 +102,7 @@ namespace SalesInformation.WinForm
                 {
                     connection.ConnectionString = service.connectionString;
                     connection.Open();
-                    
+
                     command.CommandText = "Select sn.id, c.[surname] cSurname, s.[surname] sSurname, sn.trade_amount, sn.trade_date " +
                         "from SalesNote sn " +
                         "join Customers c on c.id = sn.customer_id " +
@@ -130,7 +130,7 @@ namespace SalesInformation.WinForm
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
